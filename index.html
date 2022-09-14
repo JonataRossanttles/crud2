@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CRUD</title>
+  <link rel="stylesheet" href="stylecrud.css">
+  <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <span>Cadastro de Funcionários</span>
+      <button onclick="openModal()" id="new">Incluir</i></button>
+    </div>
+<img src="" alt="">
+    <div class="divTable" >
+      <table>
+        <thead>
+          <tr>
+            <th>Cpf</th>
+            <th>Nome</th>
+            <th>Celular</th>
+            <th class="acao">Editar</th>
+            <th class="acao">Excluir</th>
+          </tr>
+        </thead>
+        <tbody id="meu_tbody">
+        </tbody>
+      </table>
+    </div>
+
+    <div class="modal-container">
+      <div class="modal">
+        <form>
+          <label for="m-cpf">Cpf</label>
+          <input id="m-cpf" type="text" required />
+  
+          <label for="m-nome">Nome</label>
+          <input id="m-nome" type="text" required />
+  
+          <label for="m-celular">Celular</label>
+          <input id="m-celular" type="number" required />
+          <button id="btnSalvar">Salvar</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
+  <script>
+      const firebaseConfig = {
+apiKey: "AIzaSyBooVs_XPoybRfADxhmrdqKuFJfKfX3vik",
+authDomain: "colegio-3e46d.firebaseapp.com",
+projectId: "colegio-3e46d",
+storageBucket: "colegio-3e46d.appspot.com",
+messagingSenderId: "227644157075",
+appId: "1:227644157075:web:bfeaf531fb016baa91f166",
+measurementId: "G-GP0GXXK6BC"
+};
+firebase.initializeApp(firebaseConfig)
+firebase.firestore().settings({
+      experimentalForceLongPolling: true,
+      merge: true,
+    });
+    
+
+
+</script>
+<script src="javascript.js"></script>
+
+</body>
+
+</html>
