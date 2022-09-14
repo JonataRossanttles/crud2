@@ -53,7 +53,7 @@ function editardoc(cpf){
  }
 
 function salvar_dados(){
-  db.collection("turmaA").doc(cpf_cliente.value.toString()).set({cpf:parseInt(cpf_cliente.value), nome:nome_cliente.value.toString(), celular:parseInt(celular_cliente.value)})
+  db.collection("turmaA").doc(cpf_cliente.value.toString()).set({cpf:cpf_cliente.value.toString(), nome:nome_cliente.value.toString(), celular:parseInt(celular_cliente.value)})
 
    console.log(cpf_cliente.value)
    modal.style.display="none"
@@ -61,4 +61,3 @@ location.reload()
 }
 
 
-db.collection("turmaA").doc('10770727409').set({cpf:'10770727409', nome:'Jonata Rossanttles', celular:'986919987'})
