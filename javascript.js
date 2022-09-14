@@ -60,4 +60,4 @@ function salvar_dados(){
 location.reload()
 }
 
-db.collection("turmaA").doc('12345').set({cpf:'12345', nome:'patativa', celular:'87869606'})
+
