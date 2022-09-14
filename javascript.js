@@ -38,7 +38,7 @@ function editardoc(cpf){
   
   db.collection("turmaA").doc(cpf.toString()).get().then((snapshot)=>{
     let dados1 = snapshot.data()
-    cpf_cliente.value = cpf
+    cpf_cliente.value = cpf.toString()
     nome_cliente.value = dados1.nome
     celular_cliente.value = dados1.celular
     
