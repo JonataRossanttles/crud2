@@ -37,14 +37,14 @@
       <div class="modal">
         <form>
           <label for="m-cpf">Cpf</label>
-          <input id="m-cpf" type="text" required />
+          <input id="m-cpf" type="number" required />
   
           <label for="m-nome">Nome</label>
           <input id="m-nome" type="text" required />
   
           <label for="m-celular">Celular</label>
           <input id="m-celular" type="number" required />
-          <button id="btnSalvar">Salvar</button>
+          <button id="btnSalvar" type="button">Salvar</button>
         </form>
       </div>
     </div>
@@ -56,14 +56,14 @@
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-storage.js"></script>
   <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-auth.js"></script>
   <script>
-      const firebaseConfig = {
-apiKey: "AIzaSyBooVs_XPoybRfADxhmrdqKuFJfKfX3vik",
-authDomain: "colegio-3e46d.firebaseapp.com",
-projectId: "colegio-3e46d",
-storageBucket: "colegio-3e46d.appspot.com",
-messagingSenderId: "227644157075",
-appId: "1:227644157075:web:bfeaf531fb016baa91f166",
-measurementId: "G-GP0GXXK6BC"
+       const firebaseConfig = {
+  apiKey: "AIzaSyBooVs_XPoybRfADxhmrdqKuFJfKfX3vik",
+  authDomain: "colegio-3e46d.firebaseapp.com",
+  projectId: "colegio-3e46d",
+  storageBucket: "colegio-3e46d.appspot.com",
+  messagingSenderId: "227644157075",
+  appId: "1:227644157075:web:bfeaf531fb016baa91f166",
+  measurementId: "G-GP0GXXK6BC"
 };
 firebase.initializeApp(firebaseConfig)
 firebase.firestore().settings({

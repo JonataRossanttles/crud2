@@ -23,8 +23,8 @@ snapshot.forEach((doc)=>{
   <td> ${dados.cpf} </td>
   <td> ${dados.nome} </td>
   <td> ${dados.celular} </td>
-  <td class= "td-edit" ><img src="imagens-firebase/editar.png" class = "editar" onclick = editardoc(${dados.cpf})> </td> 
-  <td class= "td-edit" ><img src="imagens-firebase/excluir.png" class = "excluir" onclick = excluirdoc(${dados.cpf})> </td> 
+  <td class= "td-edit" ><img src="imagens-firebase/editar.png" class = "editar" onclick = editardoc('${doc.id}')> </td> 
+  <td class= "td-edit" ><img src="imagens-firebase/excluir.png" class = "excluir" onclick = excluirdoc('${doc.id}')> </td> 
   
   </tr> ` 
  
@@ -33,31 +33,38 @@ snapshot.forEach((doc)=>{
 
 })
 
-function editardoc(cpf){
+
+
+function editardoc(id_doc){
   modal.style.display="block"
+
+
   
-  db.collection("turmaA").doc(cpf.toString()).get().then((snapshot)=>{
+  db.collection("turmaA").doc(id_doc).get().then((snapshot)=>{
     let dados1 = snapshot.data()
-    cpf_cliente.value = cpf.toString()
+    cpf_cliente.value = id_doc
     nome_cliente.value = dados1.nome
     celular_cliente.value = dados1.celular
     
   })
-   
+  
 }
 
- function excluirdoc(cpf){
-  db.collection("turmaA").doc(cpf.toString()).delete().then(()=>{console.log("Apagou")})
-  console.log(cpf)
-  location.reload()
+ function excluirdoc(id_doc){
+  db.collection("turmaA").doc(id_doc).delete()
+  .then(()=>{ console.log(id_doc)
+    location.reload()})
+ 
  }
 
 function salvar_dados(){
-  db.collection("turmaA").doc(cpf_cliente.value.toString()).set({cpf:cpf_cliente.value.toString(), nome:nome_cliente.value.toString(), celular:parseInt(celular_cliente.value)})
+  db.collection("turmaA").doc(cpf_cliente.value)
+  .set({cpf:cpf_cliente.value, nome:nome_cliente.value, celular:parseInt(celular_cliente.value)})
+  .then(()=>{ console.log(cpf_cliente.value)
+    modal.style.display="none"
+ location.reload()})
 
-   console.log(cpf_cliente.value)
-   modal.style.display="none"
-location.reload()
+  
 }
 
 
